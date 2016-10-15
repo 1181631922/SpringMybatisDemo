@@ -8,32 +8,31 @@
     <!--<typeAlias alias="User" type="com.fanyafeng.model.User"/>-->
     <!--</typeAliases>-->
 
-    <properties resource="db.properties"/>
+    <!--<properties resource="jdbc.properties"/>-->
     
-    <settings>
-        <setting name="lazyLoadingEnabble" value="true"/>
-        <setting name="aggressiveLazyLoading" value="false"/>
-        <!--二级缓存,默认为true,以上两个默认为fales-->
-        <setting name="cacheEnable" value="true"/>
-    </settings>
+    <!--<settings>-->
+        <!--<setting name="lazyLoadingEnabble" value="true"/>-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+        <!--&lt;!&ndash;二级缓存,默认为true,以上两个默认为fales&ndash;&gt;-->
+        <!--<setting name="cacheEnable" value="true"/>-->
+    <!--</settings>-->
 
     <!-- 和spring整合后 environments配置将废除-->
-    <environments default="development">
-        <environment id="development">
-            <!-- 使用jdbc事务管理-->
-            <transactionManager type="JDBC"/>
-            <!-- 数据库连接池-->
-            <dataSource type="POOLED">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${name}"/>
-                <property name="password" value="${password}"/>
-            </dataSource>
-        </environment>
-    </environments>
+    <!--<environments default="development">-->
+        <!--<environment id="development">-->
+            <!--&lt;!&ndash; 使用jdbc事务管理&ndash;&gt;-->
+            <!--<transactionManager type="JDBC"/>-->
+            <!--&lt;!&ndash; 数据库连接池&ndash;&gt;-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="driver" value="${driver}"/>-->
+                <!--<property name="url" value="${url}"/>-->
+                <!--<property name="username" value="${name}"/>-->
+                <!--<property name="password" value="${password}"/>-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
 
     <mappers>
-        <mapper resource="com/fanyafeng/model/User.xml"/>
 
         <package name="com.fanyafeng.mapper"/>
     </mappers>
