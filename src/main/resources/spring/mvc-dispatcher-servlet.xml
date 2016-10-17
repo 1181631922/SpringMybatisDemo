@@ -10,7 +10,8 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <context:component-scan base-package="com.fanyafeng.controller"/>
     <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
+    <!-- 使用SpringMVC的注解驱动 -->
+    <mvc:annotation-driven />
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
         <!--<property name="defaultContentType" value="text/html" />-->

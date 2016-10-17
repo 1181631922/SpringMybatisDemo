@@ -8,6 +8,10 @@
     <!--<typeAlias alias="User" type="com.fanyafeng.model.User"/>-->
     <!--</typeAliases>-->
 
+    <!--<typeAliases>-->
+        <!--<typeAlias type="com.fanyafeng.model"/>-->
+    <!--</typeAliases>-->
+
     <!--<properties resource="jdbc.properties"/>-->
     
     <!--<settings>-->
@@ -32,10 +36,10 @@
         <!--</environment>-->
     <!--</environments>-->
 
-    <mappers>
-
-        <package name="com.fanyafeng.mapper"/>
-    </mappers>
+    <!--和spring整合后使用spring的mapper扫描器-->
+    <!--<mappers>-->
+        <!--<package name="com.fanyafeng.mapper"/>-->
+    <!--</mappers>-->
 
 
 </configuration>

@@ -16,13 +16,11 @@ import javax.annotation.Resource;
  */
 public class UserServiceImpl extends SqlSessionDaoSupport implements UserService {
 
-    @Resource
-    private IUserMapper iUserMapper;
     @Override
     public UserModel findUserById(int id) {
-//        SqlSession sqlSession = this.getSqlSession();
-//        UserModel userModel = sqlSession.selectOne("com.fanyafeng.mapper.IUserMapper.findUserById", id);
-        UserModel userModel = iUserMapper.findUserById(id);
+        SqlSession sqlSession = this.getSqlSession();
+        UserModel userModel = sqlSession.selectOne("com.fanyafeng.mapper.IUserMapper.findUserById", id);
+//        UserModel userModel = iUserMapper.findUserById(id);
         return userModel;
     }
 }

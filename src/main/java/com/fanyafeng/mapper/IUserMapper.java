@@ -1,6 +1,7 @@
 package com.fanyafeng.mapper;
 
 import com.fanyafeng.model.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Author： fanyafeng

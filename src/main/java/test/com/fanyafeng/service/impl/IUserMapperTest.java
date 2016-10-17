@@ -1,5 +1,6 @@
 package test.com.fanyafeng.service.impl;
 
+import com.fanyafeng.mapper.IUserMapper;
 import com.fanyafeng.model.UserModel;
 import com.fanyafeng.service.UserService;
 import org.junit.Before;
@@ -31,6 +32,8 @@ public class IUserMapperTest {
 //        UserService userService = (UserService) applicationContext.getBean("userService");
 //        UserModel userModel = userService.findUserById(1);
 
-//        System.out.print("输出:" + userModel.toString());
+        IUserMapper iUserMapper = (IUserMapper) applicationContext.getBean("IUserMapper");
+        UserModel userModel = iUserMapper.findUserById(1);
+        System.out.print("输出:" + userModel.toString());
     }
 }
