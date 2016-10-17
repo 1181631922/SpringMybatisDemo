@@ -8,9 +8,10 @@
     <!--<typeAlias alias="User" type="com.fanyafeng.model.User"/>-->
     <!--</typeAliases>-->
 
-    <!--<typeAliases>-->
-        <!--<typeAlias type="com.fanyafeng.model"/>-->
-    <!--</typeAliases>-->
+    <typeAliases>
+        <!--批量扫描别名-->
+        <typeAlias type="com.fanyafeng.model"/>
+    </typeAliases>
 
     <!--<properties resource="jdbc.properties"/>-->
     
