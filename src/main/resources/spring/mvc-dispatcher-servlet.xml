@@ -24,6 +24,8 @@
     </bean>
 
     <import resource="applicationContext.xml" />
+    <import resource="applicationContext-dao.xml"/>
+    <import resource="applicationContext-tx.xml"/>
 
 
 </beans>

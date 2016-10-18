@@ -17,65 +17,65 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
-    <!--加载配置文件-->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--&lt;!&ndash;加载配置文件&ndash;&gt;-->
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-          destroy-method="close">
-        <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="maxActive" value="10"/>
-        <property name="maxIdle" value="5"/>
-    </bean>
-
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
-
-    <!--<bean id="mappingJacksonHttpMessageConverter"-->
-    <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
-    <!---->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+          <!--destroy-method="close">-->
+        <!--<property name="driverClassName" value="${jdbc.driver}"/>-->
+        <!--<property name="url" value="${jdbc.url}"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+        <!--<property name="maxActive" value="10"/>-->
+        <!--<property name="maxIdle" value="5"/>-->
     <!--</bean>-->
 
+    <!--&lt;!&ndash;<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>&ndash;&gt;-->
 
-    <!--配置sqlSessionFactory-->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <!--<property name="configLocation" value="classpath:mybatis/Configuration.xml"/>-->
-        <property name="mapperLocations" value="classpath:com/fanyafeng/mapper/*.xml"/>
-    </bean>
+    <!--&lt;!&ndash;<bean id="mappingJacksonHttpMessageConverter"&ndash;&gt;-->
+    <!--&lt;!&ndash;class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
 
-    <!--扫描mapper-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--扫描包的路径-->
-        <property name="basePackage" value="com.fanyafeng.mapper"/>
-        <!--注入sqlsession工程bean的名字-->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 
-    </bean>
-
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <!--<bean id="userService" class="com.fanyafeng.service.impl.UserServiceImpl">-->
+    <!--&lt;!&ndash;配置sqlSessionFactory&ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--&lt;!&ndash;<property name="configLocation" value="classpath:mybatis/Configuration.xml"/>&ndash;&gt;-->
+        <!--<property name="mapperLocations" value="classpath:com/fanyafeng/mapper/*.xml"/>-->
     <!--</bean>-->
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="save*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
+    <!--&lt;!&ndash;扫描mapper&ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--&lt;!&ndash;扫描包的路径&ndash;&gt;-->
+        <!--<property name="basePackage" value="com.fanyafeng.mapper"/>-->
+        <!--&lt;!&ndash;注入sqlsession工程bean的名字&ndash;&gt;-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
 
-    <aop:config>
-        <aop:advisor
-                pointcut="execution(* com.fanyafeng.service.impl.*.*(..))"
-                advice-ref="txAdvice"/>
-    </aop:config>
+    <!--</bean>-->
+
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;<bean id="userService" class="com.fanyafeng.service.impl.UserServiceImpl">&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="save*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="query*" propagation="SUPPORTS" read-only="true"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
+    <!--<aop:config>-->
+        <!--<aop:advisor-->
+                <!--pointcut="execution(* com.fanyafeng.service.impl.*.*(..))"-->
+                <!--advice-ref="txAdvice"/>-->
+    <!--</aop:config>-->
 
     <!--<bean id="iUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
     <!--<property name="mapperInterface" value="com.fanyafeng.mapper.IUserMapper"/>-->
