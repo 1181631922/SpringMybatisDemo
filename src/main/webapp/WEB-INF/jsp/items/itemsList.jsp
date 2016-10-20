@@ -17,6 +17,7 @@
     查询条件:
     <table width="100%" border="1">
         <tr>
+            <td>商品名称:<input name="itemsCustomModel.name"></td>
             <td><input type="submit" value="查询"></td>
         </tr>
     </table>
@@ -34,10 +35,10 @@
             <tr>
                 <td>${item.name}</td>
                 <td>${item.price}</td>
-                <td><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
+                <td><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                 <td>${item.detail}</td>
 
-                <td><a href="${pageContext.request.contextPath}/items/editItems?id=${item.id}">修改</a> </td>
+                <td><a href="${pageContext.request.contextPath}/items/editItems?id=${item.id}">修改</a></td>
             </tr>
         </c:forEach>
     </table>

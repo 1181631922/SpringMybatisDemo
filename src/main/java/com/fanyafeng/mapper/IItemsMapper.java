@@ -14,5 +14,7 @@ import java.util.List;
 public interface IItemsMapper {
     public ItemsModel findItemsById(Integer integer);
 
-    public void updateItems( ItemsModel itemsModel);
+    public void updateItems(ItemsModel itemsModel);
+
+    public List<ItemsModel> findItemsByName(ItemsQueryVo itemsQueryVo);
 }

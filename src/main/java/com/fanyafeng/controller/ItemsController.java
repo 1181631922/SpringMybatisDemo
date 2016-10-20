@@ -28,14 +28,10 @@ public class ItemsController {
     @Autowired
     private ItemsService itemsService;
 
-    @RequestMapping(value = "/itemsList", method = RequestMethod.GET)
-    public String itemsList(Model model) {
+    @RequestMapping(value = "/itemsList")
+    public String itemsList(Model model,ItemsQueryVo itemsQueryVo) {
 
-        ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
-        ItemsCustomModel itemsCustomModel = new ItemsCustomModel();
-        itemsCustomModel.setName("笔记本");
-        itemsQueryVo.setItemsCustomModel(itemsCustomModel);
-        List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(null);
+        List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(itemsQueryVo);
         model.addAttribute("itemsList", itemsCustomModelList);
         return "items/itemsList";
     }
