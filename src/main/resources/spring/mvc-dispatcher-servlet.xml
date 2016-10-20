@@ -11,7 +11,20 @@
     <context:component-scan base-package="com.fanyafeng"/>
     <mvc:default-servlet-handler/>
     <!-- 使用SpringMVC的注解驱动 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+
+    <!--自定义参数绑定-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.fanyafeng.controller.converter.CustomDateConverter"/>
+            </list>
+        </property>
+    </bean>
+
+
+
     <!--视图解析器-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--<property name="defaultContentType" value="text/html" />-->
@@ -20,10 +33,10 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <!--后缀-->
         <property name="suffix" value=".jsp"/>
-        
+
     </bean>
 
-    <import resource="applicationContext.xml" />
+    <import resource="applicationContext.xml"/>
     <import resource="applicationContext-dao.xml"/>
     <import resource="applicationContext-tx.xml"/>
 

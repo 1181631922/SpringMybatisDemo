@@ -17,7 +17,7 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
-    <!--&lt;!&ndash;加载配置文件&ndash;&gt;-->
+    <!--加载配置文件-->
     <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
 
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
@@ -30,12 +30,12 @@
         <!--<property name="maxIdle" value="5"/>-->
     <!--</bean>-->
 
-    <!--&lt;!&ndash;<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
 
-    <!--&lt;!&ndash;<bean id="mappingJacksonHttpMessageConverter"&ndash;&gt;-->
-    <!--&lt;!&ndash;class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">&ndash;&gt;-->
-    <!--&lt;!&ndash;&ndash;&gt;-->
-    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--<bean id="mappingJacksonHttpMessageConverter"-->
+    <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
+    <!---->
+    <!--</bean>-->
 
 
     <!--&lt;!&ndash;配置sqlSessionFactory&ndash;&gt;-->
@@ -59,8 +59,11 @@
         <!--<property name="dataSource" ref="dataSource"/>-->
     <!--</bean>-->
 
-    <!--&lt;!&ndash;<bean id="userService" class="com.fanyafeng.service.impl.UserServiceImpl">&ndash;&gt;-->
-    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--<bean id="userService" class="com.fanyafeng.service.impl.UserServiceImpl">-->
+    <!--</bean>-->
+
+    <!--<bean id="itemsService" class="com.fanyafeng.service.impl.ItemsServiceImpl">-->
+    <!--</bean>-->
 
     <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
         <!--<tx:attributes>-->

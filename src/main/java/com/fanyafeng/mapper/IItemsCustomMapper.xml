@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanyafeng.mapper.IItemsCustomMapper">
+
+    <!--动态sql-->
+    <sql id="query_items_where">
+        <if test="itemsCustomModel!=null">
+            <if test="itemsCustomModel.name!=null and itemsCustomModel.name!=''">
+                items.NAME LIKE '${itemsCustomModel.name}%'
+            </if>
+        </if>
+    </sql>
+
+    <!--商品列表查询-->
+    <!--parameterType 查询传入对象-->
+    <!--resultType 查询返回对象,建议用扩展类-->
+    <select id="findItemsList" parameterType="com.fanyafeng.model.ItemsQueryVo"
+            resultType="com.fanyafeng.model.ItemsCustomModel">
+        select items.* from items
+        <where>
+            <include refid="query_items_where"/>
+        </where>
+    </select>
+
+</mapper>

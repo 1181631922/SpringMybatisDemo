@@ -207,7 +207,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.3.0</version>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -263,12 +263,6 @@
             <version>1.8.7</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-http -->
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-http</artifactId>
-            <version>4.3.4.RELEASE</version>
-        </dependency>
 
     </dependencies>
 
