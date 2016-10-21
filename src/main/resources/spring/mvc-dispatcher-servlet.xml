@@ -11,7 +11,9 @@
     <context:component-scan base-package="com.fanyafeng"/>
     <mvc:default-servlet-handler/>
     <!-- 使用SpringMVC的注解驱动 -->
-    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+    <mvc:annotation-driven
+            conversion-service="conversionService"
+            validator="validator"></mvc:annotation-driven>
 
 
     <!--自定义参数绑定-->
@@ -23,6 +25,22 @@
         </property>
     </bean>
 
+    <!--校验器-->
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>classpath:CustomValidationMessage</value>
+            </list>
+        </property>
+        <property name="fileEncodings" value="utf-8"/>
+        <property name="cacheSeconds" value="120"/>
+    </bean>
 
 
     <!--视图解析器-->

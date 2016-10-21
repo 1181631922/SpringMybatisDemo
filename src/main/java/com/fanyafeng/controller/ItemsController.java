@@ -29,7 +29,7 @@ public class ItemsController {
     private ItemsService itemsService;
 
     @RequestMapping(value = "/itemsList")
-    public String itemsList(Model model,ItemsQueryVo itemsQueryVo) {
+    public String itemsList(Model model, ItemsQueryVo itemsQueryVo) {
 
         List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(itemsQueryVo);
         model.addAttribute("itemsList", itemsCustomModelList);
@@ -55,5 +55,23 @@ public class ItemsController {
 //        itemsCustomModel.setCreateTime(new Date());
         itemsService.updateItems(itemsCustomModel);
         return "forward:itemsList";//地址栏不变
+    }
+
+    @RequestMapping(value = "deleteItems")
+    public String deleteItems(Integer[] itemId) {
+
+        return "forward:itemsList";
+    }
+
+    @RequestMapping(value = "editItemsQuery")
+    public String editItemsQuery(Model model, ItemsQueryVo itemsQueryVo) {
+        List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(itemsQueryVo);
+        model.addAttribute("itemsList", itemsCustomModelList);
+        return "items/editItemsQuery";
+    }
+
+    @RequestMapping(value = "editItemsAllSubmit")
+    public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) {
+        return "forward:itemsList";
     }
 }

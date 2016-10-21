@@ -1,5 +1,7 @@
 package com.fanyafeng.model;
 
+import java.util.List;
+
 /**
  * Author： fanyafeng
  * Data： 16/10/18 10:54
@@ -13,6 +15,16 @@ public class ItemsQueryVo {
     private ItemsModel itemsModel;
 
     private ItemsCustomModel itemsCustomModel;
+
+    private List<ItemsCustomModel> itemsCustomModelList;
+
+    public List<ItemsCustomModel> getItemsCustomModelList() {
+        return itemsCustomModelList;
+    }
+
+    public void setItemsCustomModelList(List<ItemsCustomModel> itemsCustomModelList) {
+        this.itemsCustomModelList = itemsCustomModelList;
+    }
 
     public ItemsModel getItemsModel() {
         return itemsModel;

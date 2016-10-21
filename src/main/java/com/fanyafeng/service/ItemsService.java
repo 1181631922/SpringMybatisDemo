@@ -18,4 +18,6 @@ public interface ItemsService {
 
     public void updateItems(ItemsModel itemsCustomModel);
 
+    public void deleteItems(ItemsQueryVo itemsQueryVo);
+
 }

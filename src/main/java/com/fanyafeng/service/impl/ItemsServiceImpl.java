@@ -47,4 +47,9 @@ public class ItemsServiceImpl implements ItemsService {
         iItemsMapper.updateItems(itemsCustomModel);
     }
 
+    @Override
+    public void deleteItems(ItemsQueryVo itemsQueryVo) {
+
+    }
+
 }
