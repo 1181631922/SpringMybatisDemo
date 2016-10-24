@@ -54,6 +54,11 @@
 
     </bean>
 
+    <!--全局异常处理-->
+    <bean class="com.fanyafeng.exception.CustomExceptionResolver">
+
+    </bean>
+
     <import resource="applicationContext.xml"/>
     <import resource="applicationContext-dao.xml"/>
     <import resource="applicationContext-tx.xml"/>

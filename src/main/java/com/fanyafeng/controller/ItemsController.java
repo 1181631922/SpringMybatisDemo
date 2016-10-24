@@ -1,5 +1,6 @@
 package com.fanyafeng.controller;
 
+import com.fanyafeng.exception.CustomException;
 import com.fanyafeng.model.ItemsCustomModel;
 import com.fanyafeng.model.ItemsModel;
 import com.fanyafeng.model.ItemsQueryVo;
@@ -8,6 +9,7 @@ import com.fanyafeng.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,8 +39,12 @@ public class ItemsController {
     }
 
     @RequestMapping(value = "editItems", method = RequestMethod.GET)
-    public String editItems(Model model, Integer id) {//参数绑定  @RequestParam
+    public String editItems(Model model, Integer id) throws CustomException {//参数绑定  @RequestParam
         ItemsCustomModel itemsCustomModel = itemsService.findItemsById(id);
+
+        if (itemsCustomModel == null) {
+            throw new CustomException("修改的商品信息不存在");
+        }
 
         model.addAttribute("itemsCustom", itemsCustomModel);
 
@@ -48,13 +54,15 @@ public class ItemsController {
     }
 
     //    重定向,HttpServletRequest接收返回值
+//    数据回显注解
     @RequestMapping(value = "editItemsSubmit", method = RequestMethod.GET)
-    public String editItemsSubmit(HttpServletRequest httpServletRequest, Integer id, ItemsModel itemsCustomModel) {
+    public String editItemsSubmit(HttpServletRequest httpServletRequest, Integer id, @ModelAttribute("itemsCustom") ItemsModel itemsCustomModel) {
 
         System.out.println("返回的itemsmcustom:" + id + itemsCustomModel.toString());
 //        itemsCustomModel.setCreateTime(new Date());
         itemsService.updateItems(itemsCustomModel);
-        return "forward:itemsList";//地址栏不变
+//        return "forward:itemsList";//地址栏不变
+        return "items/editItems";
     }
 
     @RequestMapping(value = "deleteItems")

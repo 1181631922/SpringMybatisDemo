@@ -35,15 +35,17 @@ public class ItemsServiceImpl implements ItemsService {
     @Override
     public ItemsCustomModel findItemsById(Integer integer) {
         ItemsModel itemsModel = iItemsMapper.findItemsById(integer);
-        ItemsCustomModel itemsCustomModel = new ItemsCustomModel();
-        BeanUtils.copyProperties(itemsModel, itemsCustomModel);
+        ItemsCustomModel itemsCustomModel = null;
+        if (itemsModel != null) {
+            itemsCustomModel=new ItemsCustomModel();
+            BeanUtils.copyProperties(itemsModel, itemsCustomModel);
+        }
 
         return itemsCustomModel;
     }
 
     @Override
-    public void updateItems( ItemsModel itemsCustomModel) {
-        System.out.println("我的service"  + itemsCustomModel);
+    public void updateItems(ItemsModel itemsCustomModel) {
         iItemsMapper.updateItems(itemsCustomModel);
     }
 
