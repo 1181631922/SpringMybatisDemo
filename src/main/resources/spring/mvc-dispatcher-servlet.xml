@@ -61,7 +61,7 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/items/*"/>
             <bean class="com.fanyafeng.interceptor.LoginInceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
