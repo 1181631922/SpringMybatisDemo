@@ -1,8 +1,4 @@
 # 1.一些重要的代码
-* pom.xml
-```
-这里写代码片
-```
 
 * mvc-dispatcher-servlet.xml
 ```
