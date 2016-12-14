@@ -10,4 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public interface IUserMapper {
     public UserModel findUserById(int id);
+
+//    public
 }
