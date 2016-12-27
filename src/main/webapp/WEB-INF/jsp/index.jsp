@@ -20,7 +20,7 @@
 <body>
 <h1>这里是自定义的SpringMVC Demo首页</h1>
 
-<a href="/items/itemsList">打开商品列表页面</a>
+<a href="${pageContext.request.contextPath}/items/itemsList">打开商品列表页面</a>
 
 <h3>出现此页面，说明配置成功。${name}</h3>
 
