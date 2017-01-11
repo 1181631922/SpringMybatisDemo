@@ -39,6 +39,8 @@
                 <input type="button" value="查询" onclick="queryItems()">
                 <input type="button" value="批量删除" onclick="deleteItems()">
             <td><a href="${pageContext.request.contextPath}/items/editItemsQuery">批量修改</a></td>
+
+            <td><a href="${pageContext.request.contextPath}/items/editItemsQuery">添加产品</a></td>
             </td>
         </tr>
     </table>

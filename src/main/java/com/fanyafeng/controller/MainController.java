@@ -38,19 +38,19 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        UserModel userModel = userService.findUserById(1);
-        System.out.print(userModel.toString());
-        model.addAttribute("name", userModel.getUsername());
-
-        ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
-        ItemsCustomModel itemsCustomModel = new ItemsCustomModel();
-        itemsCustomModel.setName("笔记本");
-        itemsQueryVo.setItemsCustomModel(itemsCustomModel);
-        List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(itemsQueryVo);
-        for (int i = 0; i < itemsCustomModelList.size(); i++) {
-            itemsCustomModelList.get(i).getName();
-            System.out.print(itemsCustomModelList.get(i).getName());
-        }
+//        UserModel userModel = userService.findUserById(1);
+//        System.out.print(userModel.toString());
+//        model.addAttribute("name", userModel.getUsername());
+//
+//        ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
+//        ItemsCustomModel itemsCustomModel = new ItemsCustomModel();
+//        itemsCustomModel.setName("笔记本");
+//        itemsQueryVo.setItemsCustomModel(itemsCustomModel);
+//        List<ItemsCustomModel> itemsCustomModelList = itemsService.findItemsList(itemsQueryVo);
+//        for (int i = 0; i < itemsCustomModelList.size(); i++) {
+//            itemsCustomModelList.get(i).getName();
+//            System.out.print(itemsCustomModelList.get(i).getName());
+//        }
 
         return "index";
     }

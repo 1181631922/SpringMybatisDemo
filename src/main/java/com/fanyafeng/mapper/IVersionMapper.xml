@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- SELECT * FROM USER WHERE id = #{id}-->
+<mapper namespace="com.fanyafeng.mapper.IVersionMapper">
+    <select id="findVersionById" parameterType="Integer" resultType="com.fanyafeng.model.VersionModel">
+        select * from version where id=#{id};
+    </select>
+
+</mapper>

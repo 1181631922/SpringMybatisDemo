@@ -1,11 +1,15 @@
 package com.fanyafeng.interceptor;
 
+import org.apache.ibatis.javassist.compiler.MemberResolver;
+import org.apache.ibatis.javassist.expr.Handler;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Method;
 
 /**
  * Author： fanyafeng
@@ -19,6 +23,10 @@ public class LoginInceptor implements HandlerInterceptor {
         String url = httpServletRequest.getRequestURI();
 
         if (url.contains("login")) {
+            return true;
+        }
+
+        if (accessRequired((HandlerMethod) o)) {
             return true;
         }
 
@@ -42,4 +50,16 @@ public class LoginInceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
     }
+
+    private boolean accessRequired(HandlerMethod handlerMethod) {
+        Method method = handlerMethod.getMethod();
+        AccessRequired annotation = method.getAnnotation(AccessRequired.class);
+        if (annotation != null && !annotation.required()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }

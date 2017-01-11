@@ -18,12 +18,13 @@
     <title>Title</title>
 </head>
 <body>
-<h1>这里是自定义的SpringMVC Demo首页</h1>
+<h4>
+    <a href="${pageContext.request.contextPath}/items/itemsList">1.打开商品列表页面</a>
+</h4>
 
-<a href="${pageContext.request.contextPath}/items/itemsList">打开商品列表页面</a>
-
-<h3>出现此页面，说明配置成功。${name}</h3>
-
+<h4>
+    <a href="${pageContext.request.contextPath}/videos/videosList">2.打开视频列表页面</a>
+</h4>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 

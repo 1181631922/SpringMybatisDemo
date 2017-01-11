@@ -55,13 +55,15 @@
     </bean>
 
     <!--全局异常处理-->
-    <bean class="com.fanyafeng.exception.CustomExceptionResolver">
+    <!--<bean class="com.fanyafeng.exception.CustomExceptionResolver">-->
 
-    </bean>
+    <!--</bean>-->
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/items/*"/>
+            <!--<mvc:mapping path="/items/*"/>-->
+            <!--<mvc:mapping path="/videos/*"/>-->
+            <mvc:mapping path="/version/*"/>
             <bean class="com.fanyafeng.interceptor.LoginInceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

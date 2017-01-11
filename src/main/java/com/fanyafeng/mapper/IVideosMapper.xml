@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- SELECT * FROM USER WHERE id = #{id}-->
+<mapper namespace="com.fanyafeng.mapper.IVideosMapper">
+    <select id="findAllVideo" resultType="com.fanyafeng.model.VideosModel">
+        SELECT * FROM videos;
+    </select>
+
+    <select id="findVideoByPage" parameterType="Map" resultType="com.fanyafeng.model.VideosModel">
+        SELECT * FROM videos limit #{s},#{e}
+    </select>
+
+    <insert id="insertVideo" parameterType="com.fanyafeng.model.VideosModel">
+    insert into videos (img,video_url,title,des,header_img) values (#{img},#{video_url},#{title},#{des},#{header_img})
+    </insert>
+
+    <select id="findVideoById" parameterType="Integer" resultType="com.fanyafeng.model.VideosModel">
+        SELECT * FROM videos where id = #{id};
+    </select>
+
+    <update id="updateVideoById" parameterType="com.fanyafeng.model.VideosModel">
+        UPDATE videos
+        SET
+            img = #{img},
+            video_url = #{video_url},
+            title = #{title},
+            des = #{des},
+            header_img = #{header_img}
+        WHERE
+    id = #{id}
+    </update>
+
+</mapper>
