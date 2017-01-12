@@ -1,5 +1,6 @@
 package com.fanyafeng.controller;
 
+import com.fanyafeng.interceptor.AccessRequired;
 import com.fanyafeng.mapper.IItemsCustomMapper;
 import com.fanyafeng.mapper.IUserMapper;
 import com.fanyafeng.model.ItemsCustomModel;
@@ -36,6 +37,7 @@ public class MainController {
     @Autowired
     private ItemsService itemsService;
 
+    @AccessRequired(required = false)
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
 //        UserModel userModel = userService.findUserById(1);
@@ -54,7 +56,6 @@ public class MainController {
 
         return "index";
     }
-
 
 
 }
